@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BANK SEPHORA',
       theme: ThemeData(
+        //color primary
         primarySwatch: Colors.blue,
       ),
       home: const OnBoardingScreen(),
