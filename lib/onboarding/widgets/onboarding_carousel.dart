@@ -21,7 +21,7 @@ class OnBoardingCarousel extends StatelessWidget {
             height: 240,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('onboarding/img_1.png'),
+                image: AssetImage('assets/onboarding/img_1.png'),
                 fit: BoxFit.contain,
               ),
             ),
@@ -31,7 +31,7 @@ class OnBoardingCarousel extends StatelessWidget {
             height: 240,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('onboarding/img_2.png'),
+                image: AssetImage('assets/onboarding/img_2.png'),
                 fit: BoxFit.contain,
               ),
             ),
@@ -41,7 +41,7 @@ class OnBoardingCarousel extends StatelessWidget {
             height: 240,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('onboarding/img_3.png'),
+                image: AssetImage('assets/onboarding/img_3.png'),
                 fit: BoxFit.contain,
               ),
             ),
