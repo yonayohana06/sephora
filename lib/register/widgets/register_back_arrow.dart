@@ -11,16 +11,18 @@ class RegisterBackArrow extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Color.fromARGB(188, 200, 231, 255),
-            blurRadius: 10,
+            color: Color.fromARGB(200, 188, 200, 231),
+            blurRadius: 7,
             offset: Offset(0, 0), // Shadow position
           ),
         ],
       ),
       child: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         alignment: Alignment.center,
         icon: const Icon(
           Icons.arrow_back,
