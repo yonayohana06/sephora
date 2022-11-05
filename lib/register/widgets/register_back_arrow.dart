@@ -25,7 +25,7 @@ class RegisterBackArrow extends StatelessWidget {
         },
         alignment: Alignment.center,
         icon: const Icon(
-          Icons.arrow_back,
+          Icons.west,
           color: Color(0xFF2F82FF),
         ),
         iconSize: 20,

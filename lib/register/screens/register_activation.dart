@@ -28,10 +28,12 @@ class _ActivationState extends State<Activation> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: const [
-                    RegisterBackArrow(),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: RegisterBackArrow()),
                     Text(
                       'Aktivasi Akun',
                       style: TextStyle(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sephora/onboarding/onboarding.dart';
-import 'package:sephora/register/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         //color primary
         primarySwatch: Colors.blue,
       ),
-      home: const RegisterScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }

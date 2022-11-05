@@ -22,7 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Activation()),
+                  MaterialPageRoute(builder: (context) => const RegisterOtp()),
                 );
               },
               child: const Text('Selanjutnya'),
@@ -34,10 +34,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: const [
-                    RegisterBackArrow(),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: RegisterBackArrow()),
                     Text(
                       'Buat Akun',
                       style: TextStyle(

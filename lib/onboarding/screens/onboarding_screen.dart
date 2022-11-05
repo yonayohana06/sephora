@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/register/register.dart';
 import '../widgets/onboarding_carousel.dart';
 import '../widgets/onboarding_description.dart';
 import '../widgets/onboarding_indicator.dart';
@@ -60,7 +61,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               height: 61,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RegisterScreen()),
+                );
+              },
               child: const Text('Buat Akun Sekarang'),
             ),
             const SizedBox(
