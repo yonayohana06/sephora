@@ -12,6 +12,7 @@ class OnBoardingCarousel extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 240,
       child: PageView(
+        allowImplicitScrolling: true,
         onPageChanged: (currentPage) {
           onChanged(currentPage);
         },
