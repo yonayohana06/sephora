@@ -136,13 +136,18 @@ class _Input extends StatelessWidget {
               filled: true,
               hintStyle: const TextStyle(
                 color: Color(0xFF97A5C9),
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
               ),
               hintText: 'Tanggal lahir',
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10),
+              ),
+              suffixIcon: const Icon(
+                Icons.calendar_today_outlined,
+                color: Color(0xFF2F82FF),
+                size: 20,
               ),
             ),
           ),

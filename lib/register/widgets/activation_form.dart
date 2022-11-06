@@ -102,6 +102,12 @@ class _Input extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
               hintText: 'ID Pengguna',
+              helperText: 'Berisi Alphanumeric sejumlah 10-30 karakter.',
+              helperStyle: const TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFFBCC8E7),
+              ),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10),
@@ -121,6 +127,21 @@ class _Input extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
               hintText: 'Kata Sandi',
+              helperText: 'Berisi Alphanumeric sejumlah 8-10 karakter.',
+              helperStyle: const TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFFBCC8E7),
+              ),
+              suffixIcon: SizedBox(
+                width: 1,
+                height: 1,
+                child: Image.asset(
+                  'assets/register/eye_close.png',
+                  scale: 1.5,
+                  alignment: Alignment.center,
+                ),
+              ),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10),
@@ -140,6 +161,15 @@ class _Input extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
               hintText: 'Konfirmasi Kata Sandi',
+              suffixIcon: SizedBox(
+                width: 1,
+                height: 1,
+                child: Image.asset(
+                  'assets/register/eye_close.png',
+                  scale: 1.5,
+                  alignment: Alignment.center,
+                ),
+              ),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10),
