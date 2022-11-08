@@ -5,9 +5,10 @@ class OtpNumberPad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GridView.count(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         crossAxisCount: 3,
         childAspectRatio: 1.9,
         mainAxisSpacing: 15,
@@ -50,7 +51,7 @@ class NumberPadItem extends StatelessWidget {
       return Container(
         height: 60,
         width: 60,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
         ),
         alignment: Alignment.center,
@@ -59,7 +60,7 @@ class NumberPadItem extends StatelessWidget {
     return Container(
       height: 60,
       width: 60,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xFFF3F7FD),
         shape: BoxShape.circle,
       ),
@@ -71,7 +72,7 @@ class NumberPadItem extends StatelessWidget {
           }
           return Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF2B2F3C),
               fontSize: 22,
               fontWeight: FontWeight.w500,

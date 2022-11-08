@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sephora/register/widgets/register_headline.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
@@ -10,31 +11,18 @@ class RegisterForm extends StatelessWidget {
       children: [
         Card(
           margin: const EdgeInsets.all(20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-                  leading: Image.asset(
-                    'assets/register/ktp.png',
-                    width: 40,
-                  ),
-                  title: const Text(
-                    'Informasi Data Diri',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  subtitle: const Text(
-                    'Masukkan informasi data diri Anda \n'
-                    'untuk proses pembuatan akun.',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                RegisterHeadline(
+                  headline: 'Informasi Data Diri',
+                  desc: 'Masukkan informasi data diri Anda '
+                      'untuk proses pembuatan akun.',
+                  image: Image.asset('assets/register/ktp.png'),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20, bottom: 20),

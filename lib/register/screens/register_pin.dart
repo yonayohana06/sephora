@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:sephora/register/register.dart';
-import '../widgets/activation_form.dart';
-import '../widgets/register_appbar.dart';
-import '../widgets/register_next_button.dart';
+import 'package:sephora/register/widgets/pin_form.dart';
+import 'package:sephora/register/widgets/register_appbar.dart';
+import 'package:sephora/register/widgets/register_next_button.dart';
 
-class Activation extends StatefulWidget {
-  const Activation({super.key});
+class RegisterPin extends StatefulWidget {
+  const RegisterPin({super.key});
 
   @override
-  State<Activation> createState() => _ActivationState();
+  State<RegisterPin> createState() => _RegisterPinState();
 }
 
-class _ActivationState extends State<Activation> {
+class _RegisterPinState extends State<RegisterPin> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFFF3F7FD),
         body: Column(
           children: [
-            const RegisterAppbar(title: 'Activasi Akun'),
-            const Expanded(
-              child: SingleChildScrollView(
-                child: ActivationForm(),
-              ),
-            ),
+            const RegisterAppbar(title: 'MPIN'),
+            const Expanded(child: PinForm()),
             Stack(
               children: [
                 Align(
@@ -34,7 +31,7 @@ class _ActivationState extends State<Activation> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterPin(),
+                          builder: (context) => const TermAndCondition(),
                         ),
                       );
                     },

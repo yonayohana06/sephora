@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sephora/register/widgets/register_headline.dart';
 
 class ActivationForm extends StatelessWidget {
   const ActivationForm({super.key});
@@ -10,31 +11,18 @@ class ActivationForm extends StatelessWidget {
       children: [
         Card(
           margin: const EdgeInsets.all(20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-                  leading: Image.asset(
-                    'assets/register/person.png',
-                    width: 40,
-                  ),
-                  title: const Text(
-                    'Informasi Akun',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  subtitle: const Text(
-                    'Masukkan informasi mengenai akun \n'
-                    'mobile banking Sephora Anda.',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                const RegisterHeadline(
+                  headline: 'Informasi Akun',
+                  desc: 'Masukkan informasi mengenai akun '
+                      'mobile banking Sephora Anda.',
+                  icon: Icons.person_outline_outlined,
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20, bottom: 20),
@@ -147,6 +135,7 @@ class _Input extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+            obscureText: true,
           ),
         ),
         Container(
@@ -175,6 +164,7 @@ class _Input extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+            obscureText: true,
           ),
         ),
       ],

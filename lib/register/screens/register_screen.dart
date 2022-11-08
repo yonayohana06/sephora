@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sephora/register/register.dart';
-import '../widgets/register_back_arrow.dart';
+import '../widgets/register_appbar.dart';
 import '../widgets/register_form.dart';
+import '../widgets/register_next_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -16,45 +17,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFF3F7FD),
-        persistentFooterButtons: [
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RegisterOtp()),
-                );
-              },
-              child: const Text('Selanjutnya'),
-            ),
-          ),
-        ],
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: const [
-                    Align(
-                        alignment: Alignment.centerLeft,
-                        child: RegisterBackArrow()),
-                    Text(
-                      'Buat Akun',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF2B2F3C),
-                      ),
-                    ),
-                    SizedBox(),
-                  ],
-                ),
+        body: Column(
+          children: [
+            const RegisterAppbar(title: 'Buat Akun'),
+            const Expanded(
+              child: SingleChildScrollView(
+                child: RegisterForm(),
               ),
-              const RegisterForm(),
-            ],
-          ),
+            ),
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: RegisterNextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterOtp(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );

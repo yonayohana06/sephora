@@ -1,8 +1,36 @@
 import 'package:flutter/material.dart';
 
-class RegisterBackArrow extends StatelessWidget {
-  const RegisterBackArrow({super.key});
+class RegisterAppbar extends StatelessWidget {
+  const RegisterAppbar({super.key, required this.title});
 
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: _BackArrow(),
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF2B2F3C),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BackArrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
