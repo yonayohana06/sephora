@@ -12,7 +12,7 @@ class _OtpDigitState extends State<OtpDigit> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: const [
         OtpDigitItem(
           active: true,
         ),
@@ -37,11 +37,11 @@ class OtpDigitItem extends StatelessWidget {
   Widget build(BuildContext context) {
     if (active) {
       return Container(
-        margin: EdgeInsets.only(top: 33, left: 16, right: 16),
+        margin: const EdgeInsets.only(top: 33, left: 16, right: 16),
         height: 16,
         width: 16,
         decoration: BoxDecoration(
-          color: Color(0xFF2F82FF),
+          color: const Color(0xFF2F82FF),
           shape: BoxShape.circle,
           // boxShadow: [
           //   BoxShadow(
@@ -51,20 +51,20 @@ class OtpDigitItem extends StatelessWidget {
           //   )
           // ],
           border: Border.all(
-            color: Color(0xFFDAE9FF),
+            color: const Color(0xFFDAE9FF),
             width: 2,
           ),
         ),
       );
     }
     return Container(
-      margin: EdgeInsets.only(top: 33, left: 16, right: 16),
+      margin: const EdgeInsets.only(top: 33, left: 16, right: 16),
       height: 15,
       width: 15,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: Color(0xFF97A5C9),
+          color: const Color(0xFF97A5C9),
           width: 1,
         ),
       ),

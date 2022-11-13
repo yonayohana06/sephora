@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/home/home.dart';
 
 class SuccessAlert extends StatelessWidget {
   const SuccessAlert({super.key, required this.text});
@@ -40,7 +41,12 @@ class SuccessAlert extends StatelessWidget {
             const SizedBox(height: 35),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomeScreen(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(100, 40),

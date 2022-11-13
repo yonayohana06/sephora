@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/home/home.dart';
 import 'package:sephora/onboarding/onboarding.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         //color primary
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardingScreen(),
+      home: const HomeScreen(),
     );
   }
 }
