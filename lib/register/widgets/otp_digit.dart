@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class OtpDigit extends StatefulWidget {
-  const OtpDigit({super.key});
+  const OtpDigit({
+    super.key,
+    required this.otpValue,
+    this.optLength = 6,
+  });
+
+  final String otpValue;
+  final int optLength;
 
   @override
   State<OtpDigit> createState() => _OtpDigitState();
@@ -12,18 +19,9 @@ class _OtpDigitState extends State<OtpDigit> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        OtpDigitItem(
-          active: true,
-        ),
-        OtpDigitItem(
-          active: true,
-        ),
-        OtpDigitItem(),
-        OtpDigitItem(),
-        OtpDigitItem(),
-        OtpDigitItem(),
-      ],
+      children: List.generate(widget.optLength, (index) => index + 1).map((e) {
+        return OtpDigitItem(active: e <= widget.otpValue.length);
+      }).toList(),
     );
   }
 }

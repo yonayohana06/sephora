@@ -1,12 +1,47 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sephora/register/register.dart';
-import 'package:sephora/register/widgets/otp_digit.dart';
-import 'package:sephora/register/widgets/otp_number_pad.dart';
 
-import '../widgets/register_appbar.dart';
-
-class RegisterOtp extends StatelessWidget {
+class RegisterOtp extends StatefulWidget {
   const RegisterOtp({super.key});
+
+  @override
+  State<RegisterOtp> createState() => _RegisterOtpState();
+}
+
+class _RegisterOtpState extends State<RegisterOtp> {
+  final _otpLength = 6;
+  var _otpValue = '';
+  int _counter = 0;
+  late Timer _timer;
+
+  void _startTimer() {
+    _counter = 270;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        _counter--;
+      });
+      if (_counter == 0) {
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            title: Text('Selesai'),
+            content: Text('Timer Habis'),
+          ),
+        );
+        _timer.cancel();
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    _counter;
+    super.initState();
+    _startTimer();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +56,9 @@ class RegisterOtp extends StatelessWidget {
               width: 70,
             ),
             const SizedBox(height: 30),
-            const Text(
-              '04 : 30',
-              style: TextStyle(
+            Text(
+              formatTime(_counter),
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
@@ -37,23 +72,59 @@ class RegisterOtp extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const OtpDigit(),
+            OtpDigit(otpValue: _otpValue, optLength: _otpLength),
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Activation(),
-                  ),
-                );
+                _startTimer();
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const Activation(),
+                //   ),
+                // );
               },
               child: const Text('Kirim Ulang'),
             ),
-            const OtpNumberPad(),
+            OtpNumberPad(
+              onChanged: (String value) {
+                if (value == 'hapus') {
+                  _deleteLastChar();
+                }
+                if (_otpValue.length < _otpLength) {
+                  if (value != 'hapus') {
+                    setState(() {
+                      _otpValue += value;
+                    });
+                  }
+                }
+              },
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void _deleteLastChar() {
+    // print('Semua karakter: $_otpValue');
+    // print('Karakter terakhir sekarang: ${_otpValue.split('').last}');
+    if (_otpValue.isNotEmpty) {
+      final split = _otpValue.split('');
+      split.removeLast();
+      final join = split.join('');
+      // print('Nilai setelah di olah: $join');
+      setState(() {
+        _otpValue = join;
+      });
+    }
+  }
+
+  String formatTime(int seconds) {
+    final duration = Duration(seconds: _counter).toString();
+    final firstSplit = duration.split('.').first;
+    final removeFirstDigit = firstSplit.split(':')..removeAt(0);
+    final cleanTimer = removeFirstDigit.join(':');
+    return cleanTimer;
   }
 }

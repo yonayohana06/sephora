@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sephora/register/register.dart';
-import '../widgets/register_appbar.dart';
-import '../widgets/register_form.dart';
-import '../widgets/register_next_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sephora/register/register.dart';
-import 'package:sephora/register/widgets/pin_form.dart';
-import 'package:sephora/register/widgets/register_appbar.dart';
-import 'package:sephora/register/widgets/register_next_button.dart';
 
 class RegisterPin extends StatefulWidget {
   const RegisterPin({super.key});

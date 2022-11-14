@@ -1,8 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:sephora/register/widgets/register_alert.dart';
-import 'package:sephora/register/widgets/register_appbar.dart';
-import 'package:sephora/register/widgets/register_headline.dart';
+import 'package:sephora/register/register.dart';
 
 class TermAndCondition extends StatelessWidget {
   const TermAndCondition({super.key});
