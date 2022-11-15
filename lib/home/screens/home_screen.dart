@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFF3F7FD),
+        backgroundColor: const Color(0xFFF3F7FD),
         body: Column(
           children: [
             const UserInfo(),
@@ -31,8 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: const EdgeInsets.only(bottom: 30),
                   child: Column(
                     children: const [
-                      SizedBox(height: 15),
-                      InactiveAccount(),
+                      InactiveAccount(type: StatusType.aktif),
                       UserJumbotron(),
                       FavoriteList(),
                       RecentHistory(),
@@ -48,7 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             //code to execute on button press
           },
-          child: const Icon(Icons.add_outlined), //icon inside button
+          child: const Icon(
+            Icons.add_rounded,
+            size: 30,
+          ), //icon inside button
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: AnimatedBottomNavigationBar(

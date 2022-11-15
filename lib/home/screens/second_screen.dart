@@ -15,101 +15,49 @@ class _SecondScreenState extends State<SecondScreen> {
         title: const Text("Dashboard"),
         actions: const [],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Builder(
-              builder: (context) {
-                List horizontalMenuList = [
-                  {
-                    "icon": Icons.abc,
-                    "label": "Home",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.tiktok,
-                    "label": "Tiktok",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.facebook,
-                    "label": "Facebook",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.access_alarm,
-                    "label": "Task",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.developer_board,
-                    "label": "Developer",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.web,
-                    "label": "Website",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.mobile_screen_share_rounded,
-                    "label": "Share",
-                    "onTap": () {},
-                  },
-                  {
-                    "icon": Icons.event,
-                    "label": "Event",
-                    "onTap": () {},
-                  },
-                ];
-
-                return SizedBox(
-                  height: 50.0,
-                  child: ListView.builder(
-                    itemCount: horizontalMenuList.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      var item = horizontalMenuList[index];
-                      return ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.blueGrey,
-                          animationDuration: const Duration(milliseconds: 1000),
-                          backgroundColor: Colors.transparent,
-                          splashFactory: InkSplash.splashFactory,
-                          shadowColor: Colors.transparent,
-                          elevation: 0.0,
+      body: Container(
+        margin: const EdgeInsets.all(20),
+        child: AspectRatio(
+          aspectRatio: 6.7 / 5.6,
+          child: Stack(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 40),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color(0xFF4728F4),
+                ),
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                          alignment: Alignment.topRight,
+                          image: AssetImage(
+                            'assets/home/jumbotron_1.png',
+                          ),
+                          scale: 2,
                         ),
-                        onPressed: () {},
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              item["icon"],
-                              color: Colors.blueGrey,
-                            ),
-                            const SizedBox(
-                              height: 4.0,
-                            ),
-                            Text(
-                              item["label"],
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 8.0,
-                              ),
-                            ),
-                          ],
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                          alignment: Alignment.bottomLeft,
+                          image: AssetImage(
+                            'assets/home/jumbotron_2.png',
+                          ),
+                          scale: 3.3,
                         ),
-                      );
-                    },
-                  ),
-                );
-              },
-            ),
-          ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

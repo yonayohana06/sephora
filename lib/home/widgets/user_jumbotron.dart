@@ -23,13 +23,43 @@ class UserJumbotron extends StatelessWidget {
   }
 }
 
+Widget _bgImage() {
+  return Stack(
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: const DecorationImage(
+            alignment: Alignment.topRight,
+            image: AssetImage(
+              'assets/home/jumbotron_1.png',
+            ),
+            scale: 2,
+          ),
+        ),
+      ),
+      Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: const DecorationImage(
+            alignment: Alignment.bottomLeft,
+            image: AssetImage(
+              'assets/home/jumbotron_2.png',
+            ),
+            scale: 3.3,
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
 class UserBalanceInfo extends StatelessWidget {
   const UserBalanceInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
       margin: const EdgeInsets.only(bottom: 40),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -44,82 +74,91 @@ class UserBalanceInfo extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          const Text(
-            'Tabungan Harian',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1,
-            ),
-          ),
-          const SizedBox(height: 15),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              const Text(
-                '1234 1234 1234 6412',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 2,
-                ),
-              ),
-              const SizedBox(width: 15),
-              Container(
-                alignment: Alignment.bottomCenter,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 2,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.4),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text(
-                  'Salin',
+          _bgImage(),
+          Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(bottom: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Tabungan Harian',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1,
                   ),
                 ),
-              )
-            ],
-          ),
-          const SizedBox(height: 43),
-          const Text(
-            'Saldo Rekening Utama',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              letterSpacing: 1,
+                const SizedBox(height: 15),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Text(
+                      '1234 1234 1234 6412',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Container(
+                      alignment: Alignment.bottomCenter,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Text(
+                        'Salin',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 43),
+                const Text(
+                  'Saldo Rekening Utama',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 1,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: const [
+                    Text(
+                      'Rp 15.000.000.000',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
-          const SizedBox(height: 10),
-          Row(
-            children: const [
-              Text(
-                'Rp 15.000.000.000',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 2,
-                ),
-              ),
-              SizedBox(width: 15),
-              Icon(
-                Icons.remove_red_eye_outlined,
-                color: Colors.white,
-              ),
-            ],
-          )
         ],
       ),
     );
