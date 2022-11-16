@@ -48,12 +48,6 @@ class SuccessAlert extends StatelessWidget {
                   ),
                 );
               },
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(100, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
               child: const Text('Tutup'),
             ),
           ],
@@ -128,12 +122,6 @@ class UnsuccessAlert extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(0, 40),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
                     child: const Text('Coba lagi'),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/app_theme.dart';
 import 'package:sephora/home/home.dart';
 import 'package:sephora/onboarding/onboarding.dart';
 
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BANK SEPHORA',
-      theme: ThemeData(
-        //color primary
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+      theme: AppTheme.lightTheme,
+      home: const OnBoardingScreen(),
     );
   }
 }

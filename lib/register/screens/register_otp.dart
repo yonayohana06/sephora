@@ -17,7 +17,7 @@ class _RegisterOtpState extends State<RegisterOtp> {
   late Timer _timer;
 
   void _startTimer() {
-    _counter = 270;
+    _counter = 5;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _counter--;
@@ -76,13 +76,14 @@ class _RegisterOtpState extends State<RegisterOtp> {
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                _startTimer();
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const Activation(),
-                //   ),
-                // );
+                _timer.cancel();
+                // _startTimer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Activation(),
+                  ),
+                );
               },
               child: const Text('Kirim Ulang'),
             ),

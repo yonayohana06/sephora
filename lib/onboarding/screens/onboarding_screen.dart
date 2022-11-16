@@ -21,9 +21,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         backgroundColor: const Color(0xFFF3F7FD),
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -66,15 +67,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               const SizedBox(
                 height: 61,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RegisterScreen()),
-                  );
-                },
-                child: const Text('Buat Akun Sekarang'),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterScreen()),
+                    );
+                  },
+                  child: const Text('Buat Akun Sekarang'),
+                ),
               ),
               const SizedBox(
                 height: 10,

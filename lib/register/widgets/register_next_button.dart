@@ -20,13 +20,7 @@ class RegisterNextButton extends StatelessWidget {
               onPressed: () {
                 onPressed();
               },
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(0, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: const Text('Selnjutnya'),
+              child: const Text('Selanjutnya'),
             ),
           ),
         ],
