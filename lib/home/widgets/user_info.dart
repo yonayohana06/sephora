@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/notification/notification.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -52,10 +53,19 @@ class UserInfo extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(
-            Icons.notifications_outlined,
-            color: Colors.blue,
-          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationScreen()),
+              );
+            },
+            child: const Icon(
+              Icons.notifications_outlined,
+              color: Colors.blue,
+            ),
+          )
         ],
       ),
     );
