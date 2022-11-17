@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CardItem extends StatelessWidget {
-  const CardItem({
+class TransactionItem extends StatelessWidget {
+  const TransactionItem({
     super.key,
     required this.amount,
     required this.icon,
@@ -23,7 +23,7 @@ class CardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,

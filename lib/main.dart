@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BANK SEPHORA',
       theme: AppTheme.lightTheme,
-      home: const OnBoardingScreen(),
+      home: const HomeScreen(),
     );
   }
 }

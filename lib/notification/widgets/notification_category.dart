@@ -3,7 +3,9 @@ import 'package:sephora/notification/notification.dart';
 import 'package:sephora/register/register.dart';
 
 class NotificationCategory extends StatefulWidget {
-  const NotificationCategory({super.key});
+  const NotificationCategory({super.key, required this.onChanged});
+
+  final Function(int) onChanged;
 
   @override
   State<NotificationCategory> createState() => _NotificationCategoryState();
@@ -21,46 +23,43 @@ class _NotificationCategoryState extends State<NotificationCategory> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const RegisterAppbar(title: 'Notification'),
-        SizedBox(
-          height: 35,
-          child: ListView.builder(
-            itemCount: category.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: index == 0
-                    ? const EdgeInsets.only(left: 20, right: 10)
-                    : const EdgeInsets.only(right: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          crnt = index;
-                        });
-                      },
-                      child: _buttonCategory(index),
-                    ),
-                  ],
-                ),
-              );
-            },
+    return Container(
+      margin: const EdgeInsets.only(bottom: 5),
+      child: Column(
+        children: [
+          const RegisterAppbar(title: 'Notification'),
+          SizedBox(
+            height: 35,
+            child: ListView.builder(
+              itemCount: category.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: index == 0
+                      ? const EdgeInsets.only(left: 20, right: 10)
+                      : const EdgeInsets.only(right: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            crnt = index;
+                          });
+                          widget.onChanged(crnt);
+                          print(crnt);
+                        },
+                        child: _buttonCategory(index),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-        _categoryAll(crnt),
-      ],
+        ],
+      ),
     );
-  }
-
-  Widget _categoryAll(crnt) {
-    if (crnt == 0) {
-      return CategoryAll();
-    }
-    return Text("text");
   }
 
   Widget _buttonCategory(index) {

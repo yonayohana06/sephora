@@ -17,7 +17,7 @@ class Promotion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -86,12 +86,12 @@ class Info extends StatelessWidget {
   final String time;
   final String title;
   final String desc;
-  final IconData icon;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -135,34 +135,35 @@ class Info extends StatelessWidget {
               Container(
                 width: 40,
                 height: 40,
-                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color(0xFFF3F7FD),
                 ),
-                child: Icon(icon),
+                child: icon,
               ),
               const SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      color: Color(0xFF2B2F3C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: Color(0xFF2B2F3C),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  Text(
-                    desc,
-                    style: const TextStyle(
-                      color: Color(0xFF97A5C9),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
+                    Text(
+                      desc,
+                      style: const TextStyle(
+                        color: Color(0xFF97A5C9),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

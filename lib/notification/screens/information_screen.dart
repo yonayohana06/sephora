@@ -11,25 +11,56 @@ class InformationScreen extends StatefulWidget {
 class _InformationScreenState extends State<InformationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        DateSection(date: '12 Januari 2022'),
-        Promotion(
-          headline: 'Promo',
-          title: 'Promo Cashback Belanja Pulsa Dengan OVO',
-          time: '14:30',
-          image: 'assets/home/promo.png',
-        ),
-        SizedBox(height: 15),
-        Info(
-          headline: 'Informasi',
-          title: 'Maintenance Selesai',
-          desc: 'Nasabah sephora mobile banking yth, '
-              'pada jam 17:00 sephora mobile banking telah selesa...',
-          icon: Icons.settings,
-          time: '14:30',
-        )
-      ],
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 15,
+        left: 20,
+        right: 20,
+        bottom: 40,
+      ),
+      child: Column(
+        children: const [
+          DateSection(date: '12 Januari 2022'),
+          Promotion(
+            headline: 'Promo',
+            title: 'Promo Cashback Belanja Pulsa Dengan OVO',
+            time: '14:30',
+            image: 'assets/home/promo.png',
+          ),
+          SizedBox(height: 15),
+          Info(
+            headline: 'Informasi',
+            title: 'Maintenance Selesai',
+            desc: 'Nasabah sephora mobile banking yth, '
+                'pada jam 17:00 sephora mobile banking telah selesa...',
+            icon: Icon(
+              Icons.build_outlined,
+              color: Colors.blue,
+            ),
+            time: '17:30',
+          ),
+          SizedBox(height: 25),
+          DateSection(date: '11 Januari 2022'),
+          Info(
+            headline: 'Informasi',
+            title: 'Informasi Maintenance',
+            desc: 'Nasabah sephora mobile banking yth, '
+                'pada jam 14:00 sephora mobile banking telah selesa...',
+            icon: Icon(
+              Icons.build_outlined,
+              color: Colors.blue,
+            ),
+            time: '14:30',
+          ),
+          SizedBox(height: 15),
+          Promotion(
+            headline: 'Promo',
+            title: 'Promo Cashback Belanja Pulsa Dengan Gopay',
+            time: '14:30',
+            image: 'assets/home/promo.png',
+          ),
+        ],
+      ),
     );
   }
 }
