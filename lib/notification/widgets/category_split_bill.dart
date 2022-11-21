@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/notification/notification.dart';
 
 class SplitBill extends StatelessWidget {
   const SplitBill({
     super.key,
     required this.time,
-    required this.circleAva,
     required this.amount,
   });
 
   final String time;
-  final Widget circleAva;
   final String amount;
 
   @override
@@ -55,8 +54,9 @@ class SplitBill extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: circleAva),
+              UserStack(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [

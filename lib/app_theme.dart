@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AppTheme {
   ///Colors
   static const primary = Color(0xFF2F82FF);
+  static const secondary = Color(0xFFFFFFFF);
+  static const tertiary = Colors.blueGrey;
   static const bgColor = Color(0xFFF3F7FD);
   static const inputBorderColor = Color(0xFF98C1FF);
   static const inputBorderErrorColor = Colors.red;
