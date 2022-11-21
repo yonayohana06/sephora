@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sephora/onboarding/onboarding.dart';
 import 'package:sephora/register/register.dart';
-import '../widgets/language_switcher.dart';
-import '../widgets/onboarding_carousel.dart';
-import '../widgets/onboarding_description.dart';
-import '../widgets/onboarding_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -36,9 +34,31 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         color: Color(0xFF2F82FF),
                       ),
                     ),
-                    LanguageSwitcher(
-                      isID: (isId) {
-                        (isId ? 'Bahasa' : 'English');
+                    FutureBuilder<bool>(
+                      future: PrefsHelper.getLanguage(),
+                      builder: (context, s) {
+                        if (s.connectionState == ConnectionState.done) {
+                          if (s.hasData) {
+                            return LanguageSwitcher(
+                              id: (s.data) ?? false,
+                              isID: (isId) {
+                                PrefsHelper.setLanguage(isId);
+                                // (isId ? 'Bahasa' : 'English');
+                                print(isId);
+                              },
+                            );
+                          } else {
+                            return LanguageSwitcher(
+                              id: true,
+                              isID: (isId) {
+                                PrefsHelper.setLanguage(isId);
+                                // (isId ? 'Bahasa' : 'English');
+                                print(isId);
+                              },
+                            );
+                          }
+                        }
+                        return Container();
                       },
                     ),
                   ],
@@ -111,5 +131,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ),
       ),
     );
+  }
+}
+
+class PrefsHelper {
+  static Future<bool> setLanguage(value) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.setBool('isId', value);
+  }
+
+  static Future<bool> getLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isId') ?? false;
   }
 }
